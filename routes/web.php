@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsContorller;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,10 @@ use App\Http\Controllers\PostsContorller;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts',[PostsController::class,'index']);
 
+Route::get('posts/post',[PostController::class,'index']);
+
+Route::get('/users/{id}', [UsersController::class,'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
