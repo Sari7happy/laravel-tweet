@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('posts/post',[PostController::class,'index']);
 
+Route::get('/users/{id}', [UsersController::class,'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

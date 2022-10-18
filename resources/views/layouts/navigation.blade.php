@@ -8,17 +8,17 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        投稿
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                      削除
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                      編集
                     </x-nav-link>
                 </div>
                 
@@ -26,7 +26,8 @@
             
 
             <button class="lg:mt-6 xl:mt-0 inline-flex  text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded ">投稿</button>
-  <img src="{{ asset('images/blank_profile.png') }}">
+            <!-- <a class="nav-link commonNavIcon profile-icon" href="/users/{{ Auth::user()->id }}"></a> -->
+            <img src="{{ asset('images/blank_profile.png') }}">
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
