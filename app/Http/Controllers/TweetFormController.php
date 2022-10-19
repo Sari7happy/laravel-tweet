@@ -13,8 +13,15 @@ class TweetFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // ぺじネーション
+        $tweets=TweetForm::select('id','name','title','created_at')->paginate(20);
+        $search=$request->search;
+        $query=TweetForm::search($search);
+        $tweets =$query->select('id','name','title','created_at')->paginate(20);
+
+
         $tweets=TweetForm::select('id','name','title','contact','created_at')->get();
         return view ('tweet.index',compact('tweets'));
     }
