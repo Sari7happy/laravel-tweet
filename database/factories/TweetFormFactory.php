@@ -4,12 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use function Ramsey\Uuid\v1;
-
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TweetForm>
  */
-class TweetFormfactoryFactory extends Factory
+class TweetFormFactory extends Factory
 {
     /**
      * Define the model's default state.

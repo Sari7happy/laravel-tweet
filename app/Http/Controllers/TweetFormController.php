@@ -61,7 +61,17 @@ class TweetFormController extends Controller
      */
     public function show($id)
     {
-        //
+        $tweet=TweetForm::find($id);
+        if($tweet->gender===0)
+        {$gender='男性';}else{$gender='女性';}
+        if($tweet->age===1){$age='~19歳';}
+        if($tweet->age===2){$age='20歳~29歳';}
+        if($tweet->age===3){$age='30歳~39歳';}
+        if($tweet->age===4){$age='40歳~49歳';}
+        if($tweet->age===5){$age='50歳~59歳';}
+        if($tweet->age===6){$age='60歳~';}
+
+        return view ('tweets.show',compact('tweet','gender','age'));
     }
 
     /**

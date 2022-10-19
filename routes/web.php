@@ -29,6 +29,7 @@ Route::prefix('tweets')
     Route::get('/','index')->name('tweets.index');
     Route::get('/create','create')->name('tweets.create');
     Route::post('/','store')->name('tweets.store');
+    Route::get('/{id}','show')->name('tweets.show');
 
 });
 
