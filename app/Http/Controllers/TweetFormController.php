@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\TweetForm;
 
 class TweetFormController extends Controller
 {
@@ -14,7 +15,8 @@ class TweetFormController extends Controller
      */
     public function index()
     {
-   //
+        $tweets=TweetForm::select('id','name','title','contact','created_at')->get();
+        return view ('tweets.index',compact('tweets'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TweetFormController extends Controller
      */
     public function create()
     {
-        //
+        return view ('tweets.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class TweetFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TweetForm::create([
+            'name' => $request->name,
+            'title' => $request->title,
+            'email' => $request->email,
+            'url' => $request->url,
+            'gender' => $request->gender,
+            'age' => $request->age,
+            'contact' => $request->contact,
+        
+        ]);
+            return to_route('tweets.index');
+
+    
+        
     }
 
     /**
