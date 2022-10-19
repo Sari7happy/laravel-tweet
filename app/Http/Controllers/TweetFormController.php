@@ -16,7 +16,7 @@ class TweetFormController extends Controller
     public function index()
     {
         $tweets=TweetForm::select('id','name','title','contact','created_at')->get();
-        return view ('tweets.index',compact('tweets'));
+        return view ('tweet.index',compact('tweets'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TweetFormController extends Controller
      */
     public function create()
     {
-        return view ('tweets.create');
+        return view ('tweet.create');
     }
 
     /**
@@ -71,7 +71,7 @@ class TweetFormController extends Controller
         if($tweet->age===5){$age='50歳~59歳';}
         if($tweet->age===6){$age='60歳~';}
 
-        return view ('tweets.show',compact('tweet','gender','age'));
+        return view ('tweet.show',compact('tweet','gender','age'));
     }
 
     /**
@@ -82,7 +82,8 @@ class TweetFormController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tweet=TweetForm::find($id);
+        return view('tweet.edit',compact('tweet'));
     }
 
     /**
@@ -94,7 +95,20 @@ class TweetFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tweet=TweetForm::find($id);
+        $tweet->name=$request->name;
+        $tweet->title=$request->title;
+        $tweet->email=$request->email;
+        $tweet->url=$request->url;
+        $tweet->gender=$request->gender;
+        $tweet->age=$request->age;
+        $tweet->contact=$request->contact;
+        $tweet->save();
+        return to_route('tweets.index');
+
+
+
+
     }
 
     /**
@@ -105,6 +119,9 @@ class TweetFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tweet=TweetForm::find($id);
+        $tweet->delete();
+        return to_route('tweets.index');
     }
+    
 }

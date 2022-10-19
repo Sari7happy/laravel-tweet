@@ -60,9 +60,17 @@
                                             <div  class="w-full bg-opacity-50 rounded border focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-50 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">{{$tweet->contact}}</div>
                                         </div>
                                     </div>
+                                    <form method="get" action="{{route('tweets.edit',['id'=>$tweet->id])}}">
                                     <div class="p-2 w-full">
-                                        <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">新規登録</button>
+                                        <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">編集する</button>
                                     </div>
+                                    </form>
+                                    <form class="mt-40" method="post" action="{{route('tweets.destroy',['id'=>$tweet->id])}}">
+                                        @csrf
+                                    <div class="p-2 w-full">
+                                        <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">削除する</button>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                 </div>

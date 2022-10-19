@@ -30,6 +30,9 @@ Route::prefix('tweets')
     Route::get('/create','create')->name('tweets.create');
     Route::post('/','store')->name('tweets.store');
     Route::get('/{id}','show')->name('tweets.show');
+    Route::get('/{id}/edit','edit')->name('tweets.edit');
+    Route::post('/{id}','update')->name('tweets.update');
+    Route::post('/{id}/destroy','destroy')->name('tweets.destroy');
 
 });
 
