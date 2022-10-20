@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     ↓こちらから↓<br>
                     <a href="{{route('tweets.create')}}" class="text-pink-500">新規登録</a><br>
-                    <form method="get" action="{{route('tweets.index')}}">
+                    <form method="get" action="{{route('tweets.index')}}"><br>
                         <input type="text" name="search" placeholder="検索">
                         <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">検索する</button>
                     </form>
@@ -48,7 +48,7 @@
                                     </table>
                                 </div>
 
-
+                                {{$tweets->links()}}
                             </div>
                         </div>
 
