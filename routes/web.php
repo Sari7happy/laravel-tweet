@@ -33,11 +33,11 @@ Route::prefix('tweets')
     Route::get('/{id}/edit','edit')->name('tweets.edit');
     Route::post('/{id}','update')->name('tweets.update');
     Route::post('/{id}/destroy','destroy')->name('tweets.destroy');
-    Route::post('/like/{postId}',[LikeController::class,'store']);
-    Route::post('/unlike/{postId}',[LikeController::class,'destroy']);
+    
 });
 
-
+Route::get('/reply/nice/{post}', ['NiceController::class'])->name('nice');
+Route::get('/reply/unnice/{post}', ['NiceController::class'])->name('unnice');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

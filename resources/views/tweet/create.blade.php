@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="p-2 w-full">
                                         <div class="relative">
-                                            <label  class="leading-7 text-sm text-gray-600">性別</label><br>
+                                            <label class="leading-7 text-sm text-gray-600">性別</label><br>
                                             <input type="radio" name="gender" value="0">男性
                                             <input type="radio" name="gender" value="1">女性
 
@@ -61,7 +61,7 @@
                                             </select>
                                         </div>
                                     </div>
-
+                                    
 
                                     <div class="p-2 w-full">
                                         <div class="relative">

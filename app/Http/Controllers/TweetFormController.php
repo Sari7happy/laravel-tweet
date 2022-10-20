@@ -91,6 +91,7 @@ class TweetFormController extends Controller
         }
 
         return view('tweet.show', compact('tweet', 'gender', 'age'));
+        
     }
 
     /**

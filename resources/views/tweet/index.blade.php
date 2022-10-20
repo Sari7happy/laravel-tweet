@@ -3,6 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             お問い合わせ一覧
         </h2>
+     
     </x-slot>
 
     <div class="py-12">
