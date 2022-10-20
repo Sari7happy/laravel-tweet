@@ -15,7 +15,7 @@ use App\Http\Controllers\TweetFormController;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('homelogin');
 });
 
 Route::get('posts/post',[PostController::class,'index']);
@@ -30,10 +30,14 @@ Route::prefix('tweets')
     Route::get('/create','create')->name('tweets.create');
     Route::post('/','store')->name('tweets.store');
     Route::get('/{id}','show')->name('tweets.show');
-
+    Route::get('/{id}/edit','edit')->name('tweets.edit');
+    Route::post('/{id}','update')->name('tweets.update');
+    Route::post('/{id}/destroy','destroy')->name('tweets.destroy');
+    
 });
 
-
+Route::get('/reply/nice/{post}', ['NiceController::class'])->name('nice');
+Route::get('/reply/unnice/{post}', ['NiceController::class'])->name('unnice');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

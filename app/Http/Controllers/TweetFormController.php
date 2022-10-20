@@ -13,20 +13,27 @@ class TweetFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tweets=TweetForm::select('id','name','title','contact','created_at')->get();
-        return view ('tweets.index',compact('tweets'));
+        // ぺじネーション
+        $tweets = TweetForm::select('id', 'name', 'title', 'created_at')->paginate(20);
+
+        $search = $request->search;
+        $query = TweetForm::search($search);
+        $tweets = $query->select('id', 'name', 'title', 'created_at')->paginate(20);
+
+        //  $tweets = TweetForm::select('id', 'name', 'title', 'contact', 'created_at')->get();
+        return view('tweet.index', compact('tweets'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for crSeating a new resource.S
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view ('tweets.create');
+        return view('tweet.create');
     }
 
     /**
@@ -45,12 +52,9 @@ class TweetFormController extends Controller
             'gender' => $request->gender,
             'age' => $request->age,
             'contact' => $request->contact,
-        
-        ]);
-            return to_route('tweets.index');
 
-    
-        
+        ]);
+        return to_route('tweets.index');
     }
 
     /**
@@ -61,17 +65,33 @@ class TweetFormController extends Controller
      */
     public function show($id)
     {
-        $tweet=TweetForm::find($id);
-        if($tweet->gender===0)
-        {$gender='男性';}else{$gender='女性';}
-        if($tweet->age===1){$age='~19歳';}
-        if($tweet->age===2){$age='20歳~29歳';}
-        if($tweet->age===3){$age='30歳~39歳';}
-        if($tweet->age===4){$age='40歳~49歳';}
-        if($tweet->age===5){$age='50歳~59歳';}
-        if($tweet->age===6){$age='60歳~';}
+        $tweet = TweetForm::find($id);
+        if ($tweet->gender === 0) {
+            $gender = '男性';
+        } else {
+            $gender = '女性';
+        }
+        if ($tweet->age === 1) {
+            $age = '~19歳';
+        }
+        if ($tweet->age === 2) {
+            $age = '20歳~29歳';
+        }
+        if ($tweet->age === 3) {
+            $age = '30歳~39歳';
+        }
+        if ($tweet->age === 4) {
+            $age = '40歳~49歳';
+        }
+        if ($tweet->age === 5) {
+            $age = '50歳~59歳';
+        }
+        if ($tweet->age === 6) {
+            $age = '60歳~';
+        }
 
-        return view ('tweets.show',compact('tweet','gender','age'));
+        return view('tweet.show', compact('tweet', 'gender', 'age'));
+        
     }
 
     /**
@@ -82,7 +102,8 @@ class TweetFormController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tweet = TweetForm::find($id);
+        return view('tweet.edit', compact('tweet'));
     }
 
     /**
@@ -94,7 +115,16 @@ class TweetFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tweet = TweetForm::find($id);
+        $tweet->name = $request->name;
+        $tweet->title = $request->title;
+        $tweet->email = $request->email;
+        $tweet->url = $request->url;
+        $tweet->gender = $request->gender;
+        $tweet->age = $request->age;
+        $tweet->contact = $request->contact;
+        $tweet->save();
+        return to_route('tweets.index');
     }
 
     /**
@@ -105,6 +135,8 @@ class TweetFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tweet = TweetForm::find($id);
+        $tweet->delete();
+        return to_route('tweets.index');
     }
 }
