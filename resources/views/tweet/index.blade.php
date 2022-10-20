@@ -48,12 +48,13 @@
                                     </table>
                                 </div>
 
-                                {{$tweets->links()}}
+                                {{$tweets->links('vendor.pagination.tailwind')}}
                             </div>
                         </div>
 
                     </section>
 
+                    
                 </div>
             </div>
         </div>

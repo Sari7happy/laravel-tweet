@@ -15,7 +15,7 @@ use App\Http\Controllers\TweetFormController;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('homelogin');
 });
 
 Route::get('posts/post',[PostController::class,'index']);
@@ -33,7 +33,8 @@ Route::prefix('tweets')
     Route::get('/{id}/edit','edit')->name('tweets.edit');
     Route::post('/{id}','update')->name('tweets.update');
     Route::post('/{id}/destroy','destroy')->name('tweets.destroy');
-
+    Route::post('/like/{postId}',[LikeController::class,'store']);
+    Route::post('/unlike/{postId}',[LikeController::class,'destroy']);
 });
 
 
