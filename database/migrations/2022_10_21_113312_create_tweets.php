@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo')->nullable();
+        Schema::create('tweets', function (Blueprint $table) {
+            $table->id();
+            $table->string('content');
+            $table->timestamps();
         });
     }
 
@@ -25,9 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo');
-
-        });
+        Schema::dropIfExists('tweets');
     }
 };

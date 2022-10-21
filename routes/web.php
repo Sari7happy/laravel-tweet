@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TweetFormController;
-
+use App\Http\Controllers\Image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +17,10 @@ use App\Http\Controllers\TweetFormController;
 Route::get('/', function () {
     return view('homelogin');
 });
+// Route::get('/', [Image::class, 'index'])->name('upload.index');
+// Route::get('/create', [Image::class, 'create'])->name('upload.create');
+// Route::post('/store', [Image::class, 'store'])->name('upload.store');
 
-Route::get('posts/post',[PostController::class,'index']);
 
 Route::resource('tweets',TweetFormController::class);
 
