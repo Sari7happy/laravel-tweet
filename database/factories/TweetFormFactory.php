@@ -25,6 +25,7 @@ class TweetFormFactory extends Factory
             'gender'=>$this->faker->boolean(),
             'age'=>$this->faker->numberBetween(1,6),
             'contact'=>$this->faker->realText(200),
+           
         ];
     }
 }
