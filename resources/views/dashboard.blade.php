@@ -10,9 +10,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     画像投稿<br><br>
+
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <strong>{{$message}}</strong>
+                    </div>
+                    <img src="{{asset('images/'.Session::get('image'))}}"/>
+                    @endif
                     <form method="POST" action="{{route('image.store')}}" enctype="multipart/form-data">
                         @csrf
-                        <input type="file" name="image">
+                        <input type="file" class="form-control" name ="image"/>
                         <button type="submit" class="btn btn">アップロード</button>
                     </form>
 
