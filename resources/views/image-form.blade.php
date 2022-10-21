@@ -10,11 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     画像投稿<br><br>
-                    <form method="POST" action="{{route('image.store')}}" enctype="multipart/form-data">
+                    <!-- <form method="POST" action="/upload" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="image">
-                        <button type="submit" class="btn btn">アップロード</button>
-                    </form>
+                        <button class="bg-green-500 mt-4">アップロード</button>
+                    </form> -->
 
 
                 </div>
