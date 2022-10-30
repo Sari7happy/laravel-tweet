@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            画像アップロード
+            画像アップロード😆
         </h2>
     </x-slot>
 
@@ -20,7 +20,7 @@
                     <form method="POST" action="{{route('image.store')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="file" class="form-control" name ="image"/>
-                        <button type="submit" class="btn btn">アップロード</button>
+                        <button type="submit" class="btn btn bg-yellow-500">アップロード</button>
                     </form>
 
 
