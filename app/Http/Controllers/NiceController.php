@@ -21,8 +21,14 @@ class NiceController extends Controller
         $nice=Nice::where('post_id', $post->id)->where('user_id', $user)->first();
         $nice->delete();
         return back();
-        return view ('post.post');
+        return view ('nice');
 
+    }
+    public function show(Post $post)
+    {  
+ 
+        $nice=Nice::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        return view('post.show', compact('post', 'nice'));
     }
 
 

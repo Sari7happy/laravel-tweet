@@ -17,7 +17,7 @@
                         <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">検索する</button>
                     </form>
 
-                    <img src="{{ asset($image->path) }}">
+                
 
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 py-24 mx-auto">
